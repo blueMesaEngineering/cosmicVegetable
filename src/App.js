@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import "../node_modules/react-vis/dist/style.css";
-import { XYPlot, LineSeries } from "react-vis";
+import { XYPlot, VerticalBarSeries, LineSeries, MarkSeries } from "react-vis";
 
 function App() {
   const data = [
@@ -39,10 +39,19 @@ function App() {
 
         <main role="main" className="inner cover">
           <h1 className="cover-heading">React with Bootstrap</h1>
-          <p className="lead">Test of React-JS on a Bootstrap Jumbotron.</p>
-          <div>
-            <XYPlot height={300} width={300}>
+          <p className="lead">
+            Test of React-JS on a Bootstrap Jumbotron with React-vis Data to
+            boot.
+          </p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <XYPlot height={200} width={200}>
+              <VerticalBarSeries data={data} />
+            </XYPlot>
+            <XYPlot height={200} width={200}>
               <LineSeries data={data} />
+            </XYPlot>
+            <XYPlot height={200} width={200}>
+              <MarkSeries data={data} />
             </XYPlot>
           </div>
           <p className="lead">
@@ -56,8 +65,7 @@ function App() {
           <div className="inner">
             <p>
               Cover template for{" "}
-              <a href="https://getbootstrap.com/">Bootstrap</a>, by{" "}
-              <a href="https://twitter.com/mdo">@mdo</a>.
+              <a href="https://getbootstrap.com/">Bootstrap</a>.
             </p>
           </div>
         </footer>
